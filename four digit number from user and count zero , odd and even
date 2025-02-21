@@ -20,3 +20,4 @@ codd++;
 n=n/10;
 }
 printf("czero=%d ,ceven=%d , codd=%d",czero,ceven,codd);
+}
