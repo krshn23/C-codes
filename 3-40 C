@@ -1,3 +1,102 @@
+1) Write a C Program to accept a four digit number from user and count zero , odd and even
+digits of the entered number
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+int n,rem,czero=0,ceven=0,codd=0;
+clrscr();
+printf("Enter a four digit number: ");
+scanf("%d",&n);
+while(n>0)
+{
+rem=n%10;
+if(rem==0)
+czero++;
+if(rem%2==0)
+ceven++;
+else
+codd++;
+n=n/10;
+}
+printf("czero=%d ,ceven=%d , codd=%d",czero,ceven,codd);
+} 
+
+
+
+2) Write a menu driven program in ‘C’ that shows the working of a library. The menu option
+should be -
+- Add book information.
+- Display book information.
+- Exit
+/* Program to add and display book information */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void add_book();
+void disp_book();
+struct library{
+char book_title[20];
+char author_name[20];
+int accno;
+float price;
+};
+struct library book[2];
+main()
+{
+int choice;
+while(1)
+{
+printf("\n 1.add book information");
+printf("\n 2.display book information");
+printf("\n 3.exit");
+printf("\n enter your choice");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:add_book();
+break;
+case 2:disp_book();
+break;
+case 3:exit(0);
+}
+}
+}
+void add_book()
+{
+int i;
+printf("\n enter the details of the book");
+for(i=0;i<2;i++)
+{
+printf("\n enter name,author,accession number,price ");
+scanf("%s%s",book[i].book_title,book[i].author_name);
+fflush(stdin);scanf("%d",&book[i].accno);
+fflush(stdin);
+scanf("%f",&book[i].price);
+}
+}
+void disp_book()
+{
+int i;
+printf("\n details of %d books in library \n",i);
+for(i=0;i<2;i++)
+{
+printf("\n name of the book: %s",book[i].book_title);
+printf("\n author of the book: %s",book[i].author_name);
+printf("\n accession number of the book:%d",book[i].accno);
+printf("\n price of the book:%.2f",book[i].price);
+printf("\n");
+}
+}
+linkfloat()
+{
+float a,*b;
+b=&a;
+}
+
+
+
+
 3
 ) Write a ‘C’ Program to calculate factorial of given number by using recursion.
 /* factorial of a number using recursion */
