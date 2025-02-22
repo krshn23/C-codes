@@ -6,18 +6,19 @@
 long int fact(int);
 main()
 {
-int n;clrscr();
-printf("enter the number whose factorial is to be found: ");
-scanf("%d",&n);
-printf("\n factorial of %4d is %8ld\n",n,fact(n));
-getch();
+ int n;
+ clrscr();
+ printf("enter the number whose factorial is to be found: ");
+ scanf("%d",&n);
+ printf("\n factorial of %4d is %8ld\n",n,fact(n));
+ getch();
 }
 long int fact(int n)
 {
-if(n==0)
-return(1);
+  if(n==0)
+    return(1);
 else
-return(n*fact(n-1));
+   return(n*fact(n-1));
 }
 
 
@@ -29,17 +30,17 @@ return(n*fact(n-1));
 #include<conio.h>
 main()
 {
-int n,sum=0,rem;
-clrscr();
-printf("Enter a number");
-scanf("%d",&n);
-while(n>0)
-{
-rem=n%10;
-sum=sum+rem;
-n=n/10;
-}
-printf("sum=%d",sum);
+  int n,sum=0,rem;
+  clrscr();
+  printf("Enter a number");
+  scanf("%d",&n);
+  while(n>0)
+  {
+   rem=n%10;
+   sum=sum+rem;
+   n=n/10;
+  }
+  printf("sum=%d",sum);
 }
 
 
@@ -49,25 +50,25 @@ printf("sum=%d",sum);
 #include<stdio.h>
 void main()
 {
-int a[5],i,sum=0,x,f=0;
-printf("Enter the numbers ");
-for(i=0;i<5;i++)
-scanf("%d",&a[i]);
-printf("Enter the number to be searched ");
-scanf("%d",&x);
-for(i=0;i<5;i++)
-{
-if(a[i]==x)
-{
-f=1;
-break;
-}
-}
-if(f==1)
-printf("%d is found",x);
-else
-printf("%d is not found",x);
-}
+  int a[5],i,sum=0,x,f=0;
+  printf("Enter the numbers ");
+  for(i=0;i<5;i++)
+  scanf("%d",&a[i]);
+  printf("Enter the number to be searched ");
+  scanf("%d",&x);
+ for(i=0;i<5;i++)
+ {
+    if(a[i]==x)
+    {
+  f=1;
+  break;
+ }
+  }
+  if(f==1)
+    printf("%d is found",x);
+  else
+    printf("%d is not found",x);
+ }
 
 
 
@@ -79,38 +80,38 @@ printf("%d is not found",x);
 #include<conio.h>
 main()
 {
-FILE *fs,*ft,*fp;
-char ch,c;
-clrscr();fs=fopen("pr1.c","r");
-if(fs==NULL)
-{
-puts("cannot open source file");
-exit(1);
-}
-ft=fopen("pr2.c","w");
-if(ft==NULL)
-{
-puts("cannot open target file");
-fclose(fs);
-exit(1);
-}
-while(1)
-{
-ch=fgetc(fs);
-if(ch==EOF)
-break;
-else
-fputc(ch,ft);
-}
-fclose(fs);
-fclose(ft);
-fp=fopen("pr2.c","r");
-while(!feof(fp))
-{
-c=fgetc(fp);
-putchar(c);
-}
-fclose(fp);
+  FILE *fs,*ft,*fp;
+  char ch,c;
+  clrscr();fs=fopen("pr1.c","r");
+  if(fs==NULL)
+  {
+    puts("cannot open source file");
+    exit(1);
+  }
+  ft=fopen("pr2.c","w");
+  if(ft==NULL)
+  {
+   puts("cannot open target file");
+  fclose(fs);
+  exit(1);
+  }
+ while(1)
+ {
+ ch=fgetc(fs);
+ if(ch==EOF)
+   break;
+ else
+  fputc(ch,ft);
+ }
+ fclose(fs);
+ fclose(ft);
+ fp=fopen("pr2.c","r");
+  while(!feof(fp))
+ {
+  c=fgetc(fp);
+  putchar(c);
+ }
+ fclose(fp);
 } 
 
 
@@ -125,7 +126,7 @@ memory allocation*/
 #include<conio.h>#include<stdlib.h>
 main()
 {
-int **a,i,j,r,c,sum=0;
+ int **a,i,j,r,c,sum=0;
 clrscr();
 printf("Enter the order of matrix:\n");
 scanf("%d%d",&r,&c);
