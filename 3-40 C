@@ -1,0 +1,1210 @@
+3
+) Write a ‘C’ Program to calculate factorial of given number by using recursion.
+/* factorial of a number using recursion */
+#include<stdio.h>
+#include<conio.h>
+long int fact(int);
+main()
+{
+int n;clrscr();
+printf("enter the number whose factorial is to be found: ");
+scanf("%d",&n);
+printf("\n factorial of %4d is %8ld\n",n,fact(n));
+getch();
+}
+long int fact(int n)
+{
+if(n==0)
+return(1);
+else
+return(n*fact(n-1));
+}
+
+
+
+4
+) Write a C program to calculate the sum of digits of a given number
+/* Write a C program to print the sum of the digits of a given number */
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+int n,sum=0,rem;
+clrscr();
+printf("Enter a number");
+scanf("%d",&n);
+while(n>0)
+{
+rem=n%10;
+sum=sum+rem;
+n=n/10;
+}
+printf("sum=%d",sum);
+}
+
+
+
+
+5) Write a program to search a given number in a list of numbers
+#include<stdio.h>
+void main()
+{
+int a[5],i,sum=0,x,f=0;
+printf("Enter the numbers ");
+for(i=0;i<5;i++)
+scanf("%d",&a[i]);
+printf("Enter the number to be searched ");
+scanf("%d",&x);
+for(i=0;i<5;i++)
+{
+if(a[i]==x)
+{
+f=1;
+break;
+}
+}
+if(f==1)
+printf("%d is found",x);
+else
+printf("%d is not found",x);
+}
+
+
+
+
+6
+) Write a ‘C’ Program to copy the contents of one file into another file.
+/* copy contents of one file to another file */
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+FILE *fs,*ft,*fp;
+char ch,c;
+clrscr();fs=fopen("pr1.c","r");
+if(fs==NULL)
+{
+puts("cannot open source file");
+exit(1);
+}
+ft=fopen("pr2.c","w");
+if(ft==NULL)
+{
+puts("cannot open target file");
+fclose(fs);
+exit(1);
+}
+while(1)
+{
+ch=fgetc(fs);
+if(ch==EOF)
+break;
+else
+fputc(ch,ft);
+}
+fclose(fs);
+fclose(ft);
+fp=fopen("pr2.c","r");
+while(!feof(fp))
+{
+c=fgetc(fp);
+putchar(c);
+}
+fclose(fp);
+} 
+
+
+
+
+7
+) Write a C program to add all elements of a matrix by using dynamic memory allocation.
+/*Program to print sum of all elements of a mxn matrix using dynamic
+memory allocation*/
+#include<malloc.h>
+#include<stdio.h>
+#include<conio.h>#include<stdlib.h>
+main()
+{
+int **a,i,j,r,c,sum=0;
+clrscr();
+printf("Enter the order of matrix:\n");
+scanf("%d%d",&r,&c);
+a=(int **)malloc(r*sizeof(int));
+for(i=0;i<r;i++)
+a[i]=(int *)malloc(c*sizeof(int));
+/*For inputting matrix*/
+printf("Enter the matrix\n");
+for(i=0;i<r;i++)
+for(j=0;j<c;j++)
+scanf("%d",&a[i][j]);
+/*For printing the matrix*/
+printf("The matrix you entered is:\n");
+for(i=0;i<r;i++)
+{
+printf("\n\n");
+for(j=0;j<c;j++)
+printf("%4d",a[i][j]);
+}
+for(i=0;i<r;i++)
+for(j=0;j<c;j++)
+sum=sum+a[i][j];
+printf("\nSum of elements=%d",sum);
+getch();
+}
+
+
+
+
+
+8) Write a C program to perform the following operations on string using user defined function
+Calculate length of string. Copy one string into another.
+/* program to calculate length of string without using library function */
+#include<stdio.h>
+#include<conio.h>
+main(){
+char s[25];
+int n=0;
+clrscr();
+printf("\n enter a string \n");
+gets(s);
+while(s[n]!='\0')
+n++;
+printf("given string is \n%s \n length = %d \n",s,n);
+getch();
+}
+/*Program to copy one string to another without
+using standard library function*/
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i;
+char s[20],t[20];
+clrscr();
+printf("Enter the source string:\n");
+gets(s);
+for(i=0;s[i]!='\0';i++)
+t[i]=s[i];
+t[i]='\0';
+printf("\nSource string s=%s",s);
+printf("\nTarget string t=%s",t);
+getch();
+}
+
+
+
+
+
+9)Write a C program to generate the following pattern for n lines:
+1 2 3 4
+5 6 7
+8 9
+10
+#include<stdio.h>
+#include<conio.h>
+Void main()
+{Int i,j,k=1;
+Clrscr();
+For (i=1;i<=4;i++)
+{F
+or ( j = 4 ; j > = i ; j - -,k + +)
+{P
+rintf (“%d\t”,k);
+}P
+rintf (“\n”):
+}
+} 
+
+
+
+
+
+10) Write a ‘C’ Program to calculate sum of elements of a mXn matrix.
+/*Program to print sum of all elements of a mxn matrix using dynamic
+memory allocation*/
+#include<malloc.h>
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+main()
+{
+int **a,i,j,r,c,sum=0;
+clrscr();
+printf("Enter the order of matrix:\n");
+scanf("%d%d",&r,&c);
+a=(int **)malloc(r*sizeof(int));
+for(i=0;i<r;i++)
+a[i]=(int *)malloc(c*sizeof(int));
+/*For inputting matrix*/
+printf("Enter the matrix\n");
+for(i=0;i<r;i++)
+for(j=0;j<c;j++)
+scanf("%d",&a[i][j]);
+/*For printing the matrix*/
+printf("The matrix you entered is:\n");
+for(i=0;i<r;i++)
+{printf("\n\n");
+for(j=0;j<c;j++)
+printf("%4d",a[i][j]);
+}
+for(i=0;i<r;i++)
+for(j=0;j<c;j++)
+sum=sum+a[i][j];
+printf("\nSum of elements=%d",sum);
+getch();
+}
+
+
+
+
+
+11) Write a C program to accept three integers as command line arguments and find the
+minimum, maximum and average of the three numbers. Display error message if the number of
+arguments entered are invalid
+/* accept 3 numbers as command line arguments and find max,min and avg */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+main(int argc, char *argv[])
+{
+int a,b,c;
+clrscr();
+a=atoi(argv[1]);
+b=atoi(argv[2]);
+c=atoi(argv[3]);
+if(a>b && a>c)
+printf("max=%d",a);
+else if(b>c)
+printf("max=%d",b);
+else
+printf("max=%d",c);
+if(a<b && a<c)
+printf("\t min=%d",a);
+else if(b<c)
+printf("\t min=%d",b);
+else
+printf("min=%d",c);printf("\t average=%f",(a+b+c)/3.0);
+getch();
+}
+
+
+
+
+
+12) Write a ‘C’ Program to accept ‘n’ numbers and store all prime numbers in an array and
+display this array.
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+int n,num,i,c,b[25],k=0;
+clrscr();
+printf("enter how many numbers ");
+scanf("%d",&n);
+for(c=0;c<n;c++)
+{
+scanf("%d",&num);
+for(i=2;i<=num-1;i++)
+if(num%i==0)
+{
+break;
+}
+if(i==num)
+{
+b[k]=num;
+k++;
+}
+}
+for(i=0;i<k;i++)
+printf("%d\t",b[i]);
+}
+
+
+
+
+
+13) Write a C program to calculate the x to the power y without using standard function.
+/* Write a C program to calculate x to the power y without using standard
+function */#include<stdio.h>
+void main()
+{
+int x,y;
+int p=1,count=1;
+printf("Enter the values of x and y ");
+scanf("%d%d",&x,&y);
+while(count<=y)
+{
+p*=x;
+count++;
+}
+printf("%d to power %d = %d",x,y,p);
+}
+
+
+
+
+14) Write a ‘C’ Program to store the records of student (stud_no, Stud_name, stud_addr,
+stud_Percentage) in a file using structure.
+/* Write a ‘C’ Program to store the records of student (stud_no,
+Stud_name, stud_addr, stud_Percentage) in a file using
+structure */
+/* Note: take structure members as per above question in the program
+below */
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+struct stud
+{
+int rollno;
+char name[40];
+};
+void main()
+{
+FILE *fp;
+int i,n;
+struct stud s;fp=fopen("student.dat","wb");
+if(fp==NULL)
+{
+puts("cannot open file");
+exit(1);
+}
+printf("\nEnter no. of students\n:");
+scanf("%d",&n);
+for(i=1;i<=n;i++)
+{
+printf("Enter rollno and name\n ");
+scanf("%d",&s.rollno);
+fflush(stdin);
+scanf("%s",s.name);
+fwrite(&s, sizeof(s), 1, fp);
+}
+fclose(fp);
+fp=fopen("student.dat","rb");
+if(fp==NULL)
+{
+puts("cannot open file");
+exit(1);
+}
+while(fread(&s,sizeof(s),1,fp))
+{
+printf("\n rollno =%d , name : %s ",s.rollno,s.name);
+}
+fclose(fp);
+}
+
+
+
+
+
+15) Write a ‘C’ Program to accept a string from user and display the alternate characters.
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+main()
+{
+char str[15];
+int i,j;
+clrscr();
+printf("enter a string ");
+gets(str);
+j=strlen(str);
+for(i=0;i<=j;i+=2)
+printf("%c",str[i]);
+getch();
+}
+
+
+
+
+16) Write a ‘C’ Program to sort elements of an array in ascending order using dynamic memory
+allocation .
+/* Program to sort elements of an array in ascending order using dynamic
+memory allocation */
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+void main()
+{
+int *a;
+int max,n,i,j,temp;
+clrscr();
+printf("\n Enter size of array");
+scanf("%d",&n);
+a=(int *)malloc(n * sizeof(int));
+printf("enter elements of array\n");
+for(i=0;i<n;i++)
+scanf("%d",&a[i]);for(i=0;i<n-1;i++)
+for(j=i+1;j<n;j++)
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+printf("elements of array in ascending order\n");
+for(i=0;i<n;i++)
+printf("%d\n",a[i]);
+}
+
+
+
+
+17) Write a ‘C’ Program to count the number of characters, number of words and number of
+lines from a text file and display the result.
+/* count chars,words,lines in a file */
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+FILE *fp;
+char ch;
+int nol=0,nob=0,noc=0;
+clrscr();
+fp=fopen("demo.txt","r");
+while(1)
+{
+ch=fgetc(fp);
+if(ch==EOF)
+break;
+noc++;
+if(ch==' ')
+nob++;if(ch=='\n')
+nol++;
+}
+fclose(fp);
+printf("\n number of characters=%d",noc);
+printf("\n number of blanks=%d",nob);
+printf("\n number of lines=%d",nol);
+}
+
+
+
+
+
+18) Write a C program to check whether given number is Palindrome or not.
+#include<stdio.h>
+int main () {
+int n, ori, rem, reverse=0;
+printf("Enter numbers: ");
+scanf("%d", &n);
+ori = n;
+while (n!= 0) {
+rem = n % 10;
+reverse = reverse * 10 + rem;
+n /= 10;
+}p
+rintf("The reverse of %d is %d\n", ori, reverse);
+if (ori == reverse)
+printf("The given number is palindrome");
+else
+printf("The given number is not a palindrome");
+}
+
+
+
+
+19) Write a C program to check whether given number is perfect or not.
+#include<stdio.h>
+int main()
+{in
+t num, i, sum = 0;
+printf("Enter an integer: ");
+scanf("%d", &num);
+for (i = 1; i < num; i++) {if (num % i == 0) {
+sum += i;
+}}if
+(sum == num) {
+printf("%d is a perfect number\n", num);
+} else {
+printf("%d is not a perfect number\n", num);
+}} 
+
+
+
+
+20) Write a C program to accept string from the user & replace all occurrences of character ‘a’
+by ‘*’ symbol.
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+Void main ()
+{C
+har str[10];
+Int i;
+Clrscr();
+Printf(“ enter a string \ n “);
+Gets(str);
+for (i=0; i <= strlen(str);i++)
+{If
+(str[i]==’a’)
+{st
+r[i]=’*’;
+}}P
+uts(str);
+}
+
+
+
+
+
+21) Write a C program to generate following pattern for n lines.
+AB
+B
+C C C
+D D D D
+E E E E E
+#include<stdio.h>#include<conio.h>
+Void main()
+{
+Int i , j ;
+Char ch = ‘A’;
+Clrscr();
+For(i=1;i<=5;i++)
+{fo
+r(j=1;j<=i;j++)
+{P
+rintf(“%c\t”,ch);
+}
+Printf(“\n”); ch++;
+}}
+
+
+
+
+22) Write a ‘C’ Program to accept ‘n’ numbers from user, store these numbers into an array.
+Find out Maximum and Minimum number from an Array(using function).
+/* Write a ‘C’ Program to accept ‘n’ numbers from user, store these
+numbers into an array. Find out Maximum and Minimum number from an
+Array(using function).*/
+#include<stdio.h>
+#include<conio.h>
+void maxmin(int [],int);
+void main()
+{
+int a[5];
+int n,i,j,temp;
+clrscr();
+printf("\n Enter size of array");
+scanf("%d",&n);
+printf("enter elements of array\n");
+for(i=0;i<n;i++)
+scanf("%d",&a[i]);
+maxmin(a,n);
+}
+void maxmin(int a[],int y)
+{int max,min,i;
+max=a[0];
+min=a[0];
+for(i=0;i<y;i++)
+{
+if(max < a[i])
+max =a[i];
+}
+for(i=0;i<y;i++)
+{
+if(min>a[i])
+min=a[i];
+}
+printf("\n max = %d,min=%d",max,min);
+getch();
+} 
+
+
+
+
+
+23) Write a C program to convert a given string into uppercase & vice versa
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+int i;
+char s[20];
+printf("\n enter a string");
+gets(s);
+for(i=0;s[i]!='\0';i++)
+if(s[i]>=65&&s[i]<91)
+s[i]=s[i]+32;
+else
+s[i]=s[i]-32;
+// s[i]='\0';
+puts(s);
+getch();} .
+
+
+
+
+24) Write a C program to display multiplication table of a given number.
+#include <stdio.h>
+int main() {
+int num;
+// Asking user to enter a number
+printf("Enter a number: ");
+scanf("%d", &num);
+// Displaying the multiplication table
+printf("Multiplication Table of %d:\n", num);
+for (int i = 1; i <= 10; i++) {
+printf("%d x %d = %d\n", num, i, num * i);
+} r
+eturn 0;
+}
+
+
+
+
+
+25) Write a C program to calculate the sum of following series using function.
+Sum=1+1/x+1/x2+1/x3+1/x4+…………..
+#include<stdio.h>
+#include<conio.h>
+Main()
+{C
+har c ;
+Clrscr();
+C=getche();
+Printf(“\t ASCII value is %d”,c);
+Printf(“\n Previous character = %c”, c-1);
+Printf(“\n next character = %c”, c+1);
+} 
+
+
+
+
+
+26) Write a C program to sort an array of n integers using selection sort.
+/* Selection sort */
+#include<stdio.h>
+#include<conio.h>
+void main()
+{int a[10];
+int n,i,j,temp;
+clrscr();
+printf("\n Enter size of array");
+scanf("%d",&n);
+printf("enter elements of array\n");
+for(i=0;i<n;i++)
+scanf("%d",&a[i]);
+for(i=0;i<n-1;i++)
+for(j=i+1;j<n;j++)
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+printf("elements of array in ascending order\n");
+for(i=0;i<n;i++)
+printf("%d\n",a[i]);
+}
+
+
+
+
+
+
+27) Write a C program to calculate sum of digits till it reduces to a single digit using recursion
+/* sum of the digits of a number till it reduces to a single digit */
+#include<stdio.h>
+#include<conio.h>
+int recur(long);
+main()
+{
+long int num;
+int sum;
+clrscr();
+printf("enter the number");
+scanf("%ld",&num);
+sum=recur(num);
+printf("\n %d",sum);
+getch();
+}int recur(long int num1)
+{
+int sum1=0,digit;
+while(num1>0)
+{
+digit=num1%10;
+sum1=sum1+digit;
+num1=num1/10;
+}
+if(sum1>=10)
+sum1=recur(sum1);
+return sum1;
+} . 
+
+
+
+
+
+
+28) Write a C program to accept n different numbers and display sum of all +ve & -ve numbers.
+/* Program to accept n different numbers and display sum of all +ve & -ve
+numbers */
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int n,i,x,s=0,s1=0;
+printf("enter how many numbers\n");
+scanf("%d",&n);
+for(i=1;i<=n;i++)
+{
+printf("enter the numbers\n");
+scanf("%d",&x);
+if(x>0)
+s=s+x;
+else
+s1=s1+(x);
+}
+printf("sum of positive numbers=%d \t sum of negative
+numbers=%d",s,s1);
+}
+
+
+
+
+
+
+29) Write a menu driven program in C to create a structure employee having fields empid ,
+empname ,salary. Accept the details of n Employees from user and perform the following
+operations using function - Search by EmpId - Display Names of Employee having salary is
+greater than 10000.
+#include<stdio.h>
+#include<conio.h>
+struct emp
+{in
+t empid;
+char empname[20];
+float salary; };
+void main()
+{st
+ruct emp e[10];
+int i,n,flag=0,eno,ff=0;
+float f,*fp;
+fp=&f;
+clrscr();
+printf("Enter the number of employees\n");
+scanf("%d",&n);
+printf("Enter %d employee details \n",n);
+for(i=0;i<n;i++)
+{ s
+canf("%d",&e[i].empid);
+fflush(stdin);
+scanf("%s",e[i].empname);
+fflush(stdin);
+scanf("%f",&e[i].salary);
+}
+printf("Enter empid to be searched \n");
+scanf("%d",&eno);
+printf("%d employee details \n",n);
+for(i=0;i<n;i++)
+printf("%5d%10s%10.2f
+\n",e[i].empid,e[i].empname,e[i].salary);
+printf("empid to be searched \n");
+printf("%d\n",eno);
+for(i=0;i<n;i++)
+if(e[i].empid==eno)
+{f
+lag=1;
+break;
+}if(flag==1)
+printf("found\n");
+1e
+lse
+printf("not found
+else
+printf("not found\n");
+printf("Employees having salary > 10000 are \n");
+for(i=0;i<n;i++);
+if(e[i].salary>10000);
+{ff
+=1;
+printf("%10s%10.2f\n",e[i].empname,e[i].salary);
+}if
+(ff==0);
+printf("No employees having salary > 10000");
+}
+
+
+
+
+
+
+
+30) Write a C program to display transpose of matrix using user defined function.
+/* Program to sort elements of an array in ascending order using dynamic
+memory allocation */
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+void main()
+{
+int *a;
+int max,n,i,j,temp;
+clrscr();
+printf("\n Enter size of array");
+scanf("%d",&n);
+a=(int *)malloc(n * sizeof(int));
+printf("enter elements of array\n");
+for(i=0;i<n;i++)
+scanf("%d",&a[i]);
+for(i=0;i<n-1;i++)
+for(j=i+1;j<n;j++)
+if(a[i]>a[j]){
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+printf("elements of array in ascending order\n");
+for(i=0;i<n;i++)
+printf("%d\n",a[i]);
+}
+
+
+
+
+
+31) Write a C program to calculate sum of all even numbers in an array.
+#include<stdio.h>
+void main()
+{
+int a[5],i,sum=0;
+printf("Enter the numbers ");
+for(i=0;i<5;i++)
+scanf("%d",&a[i]);
+for(i=0;i<5;i++)
+{if
+(a[i]%2==0) sum+=a[i];
+}p
+rintf("sum=%d",sum);
+}
+
+
+
+
+
+
+
+32) Write a C program to accept string from user and display alternate character of string in
+upper case .(eg: I/P hello O/P hElLo).
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<ctype.h>
+main()
+{
+char str[15],str1[15];
+int i,j,m;clrscr();
+printf("enter a string ");
+gets(str);
+m=strlen(str);
+for(i=0;i<=m;i++)
+{
+if(i%2==0)
+str[i]=toupper(str[i]);
+}
+puts(str);
+getch();
+}
+
+
+
+
+
+
+33) Write a C program to accept n employee information(eno, enme, salary) and display the
+employee information having maximum salary. Use array of structure.
+#include<stdio.h>
+#include<conio.h>
+
+struct emp
+{
+int empid;
+char empname[20];
+float salary;
+};
+void main()
+{s
+truct emp e[10],temp;
+int i,n,j;
+float f,*fp;
+fp=&f;
+clrscr();
+printf("Enter the number of employees\n");
+scanf("%d",&n);
+printf("Enter %d employee details \n",n);
+for(i=0;i<n;i++)
+{ sc
+anf("%d%s%f",&e[i].empid,e[i].empname,&e[i].salary);}p
+rintf("%d employee details \n",n);
+for(i=0;i<n;i++)
+printf("%5d%10s%10.2f
+\n",e[i].empid,e[i].empname,e[i].salary);
+for(i=0;i<n-1;i++)
+for(j=i+1;j<n;j++)
+if(e[i].salary<e[j].salary)
+{t
+emp=e[i];
+e[i]=e[j];
+e[j]=temp;
+}
+printf("Employee having maximum salary\n");
+printf("%5d%10s%10.2f\n",e[0].empid,e[0].empname,e[0].salary);
+
+
+
+
+
+
+
+
+34) Write a C program to copy one file to another using command line arguments.
+/* program to copy one file to another using command line arguments */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void main( int argc,char *argv[])
+{
+FILE *fs,*ft;
+char ch;
+if(argc!=3)
+{
+puts("improper number of arguments");
+exit(0);
+}
+fs=fopen(argv[1],"r");
+if(fs==NULL)
+{
+puts("cannot open source file");
+exit(0);
+}
+ft=fopen(argv[2],"w");
+if(ft==NULL)
+{
+puts("cannot open target file");
+fclose(fs);exit(0);
+}
+while(1)
+{
+ch=fgetc(fs);
+if(ch==EOF)
+break;
+else
+fputc(ch,ft);
+}
+fclose(fs);
+fclose(ft);
+} 
+
+
+
+
+
+
+35) Write a C program to covert temperature from Celsius to Fahrenheit.
+#include <stdio.h>
+#include <conio.h>
+int main() {
+float celsius, fahrenheit;
+clrscr();
+printf("Enter temperature in Celsius: ");
+scanf("%f", &celsius);
+fahrenheit = (celsius * 9 / 5) + 32;
+printf("Temperature in Fahrenheit: %.2f\n", fahrenheit);
+getch();
+return 0;
+}
+
+
+
+
+
+
+36) Write a ‘C’ program to accept customer details such as: Account_no, Name, Balance in
+account, Assume Maximum 10 customers in the bank. Write a function to print the account no
+and name of each customer with balance below Rs.100. (using structure)
+#include<stdio.h>
+#include<conio.h>
+void setdata();void display();
+void lowbal();
+/* struture of customer */
+struct customer
+{
+int accno;
+char name[20];
+float balance;
+};
+struct customer cust[2];
+void main()
+{
+int i,ano,choice;
+float amt;
+float f,*fp;
+fp=&f;
+clrscr();
+setdata();
+display();
+lowbal();
+}
+void setdata()
+{
+int i;
+for(i=0;i<2;i++)
+{
+printf("\n enter accno of customer\n");
+scanf("%d",&cust[i].accno);
+printf("\n enter name of customer\n");
+scanf("%s",cust[i].name);
+printf("\n enter balance of customer\n");
+scanf("%f",&cust[i].balance);
+}
+}
+void display()
+{
+int i;
+for(i=0;i<2;i++){
+printf("\n account number of customer=%d",cust[i].accno);
+printf("\n name of customer=%s",cust[i].name);
+printf("\n balance amount of customer=%f",cust[i].balance);
+}
+}
+void lowbal()
+{
+int i,j=0;
+clrscr();
+printf("\n name and account number of customers whose balance is less
+than 100");
+for(i=0;i<2;i++)
+{
+if(cust[i].balance<100)
+{
+j=1;
+printf("\n account number of customer=%d",cust[i].accno);
+printf("\n name of customer=%s",cust[i].name);
+}
+}
+if(j==0)
+printf("\n every customer has minimum balance" );
+} 
+
+
+
+
+
+
+37) Write a C program to print the Fibonacci series upto n terms.
+/* program to print Fibonacci series upto given terms */
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+int t1=1,t2=1,t3,i,n;
+clrscr();
+printf("enter the number of terms ");
+scanf("%d",&n);
+printf("%d\t%d\t",t1,t2);for(i=1;i<=n-2;i++)
+{
+t3=t1+t2;
+printf("%d\t",t3);
+t1=t2;
+t2=t3;
+}
+getch();
+} 
+
+
+
+
+38) Write a C program to accept character & display its ASCII value and its next & previous
+character.
+#include<stdio.h>
+#include<conio.h>
+Main()
+{
+Char c ;
+Clrscr();
+C=getche();
+Print(“\t ASCII value is %d”,c);
+Print(“\n Previous character = %c”, c-1);
+Print(“\n next character = %c”, c+1);
+}
+
+
+
+
+39) Write a C program to calculate the area of following (Use switch case statement) i. Circle ii.
+Rectangle iii Triangle
+/* menu driven program to calculate area */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+main()
+{
+int ch;
+float s,l,b,r,base,ht;
+float acircle,arect,atriangle;
+clrscr();
+do{
+printf("\n Main Menu \n");
+printf("1. Area of circle\n");
+printf("2. Area of rectangle\n");
+printf("3. Area of triangle\n");
+printf("4. Exit\n");
+printf("Enter your choice: ");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:printf("\n Enter radius ");
+scanf("%f",&r);
+acircle=3.14*r*r;
+printf("\n Area of circle = %f",acircle);
+break;
+case 2:printf("\n Enter length and breadth of rectangle ");
+scanf("%f%f",&l,&b);
+arect=l*b;
+printf("\n Area of rectangle = %f",arect);
+break;
+case 3:printf("\n Enter base and height of triangle ");
+scanf("%f%f",&base,&ht);
+atriangle=0.5*base*ht;
+printf("\n Area of triangle = %f",atriangle);
+break;
+case 4:exit(0);
+}
+}while(ch>=1 && ch<=4);
+} 
+
+
+
+
+
+40) Write a ‘C’ Program to accept a string from user, delete all vowels from that string and
+display the result.
+/* Write a C program to delete all vowels from a string not more than 15
+characters */
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+char s[15],str1[15];int i=0,j=0;
+clrscr();
+printf("\n enter a string not more than 15 characters \n");
+gets(s);
+while(s[i]!='\0')
+{
+if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
+i++;
+else
+if(s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')
+i++;
+else
+{
+str1[j]=s[i];
+i++;
+j++;
+}
+}
+str1[j]='\0';
+printf("\n string after removing all vowels \n");
+puts(str1);
+getch();
+}
